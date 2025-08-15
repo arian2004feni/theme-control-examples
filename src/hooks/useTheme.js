@@ -1,16 +1,20 @@
 // src/hooks/useTheme.js
 import { useEffect, useState } from "react";
 
-// All valid themes
-const validThemes = ["light", "dark", "aqua", "arian-delta", "arian-alpha"];
+const themes = [
+  "light", "dark", "cupcake", "bumblebee", "emerald", "corporate",
+  "synthwave", "retro", "cyberpunk", "valentine", "halloween",
+  "garden", "forest", "aqua", "lofi", "pastel", "fantasy",
+  "wireframe", "black", "luxury", "dracula", "cmyk", "autumn",
+  "business", "acid", "lemonade", "night", "coffee", "winter",
+  "dim", "nord", "sunset", "my-custom-theme" // your custom
+];
 
 export default function useTheme() {
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem("theme");
+    if (saved && themes.includes(saved)) return saved;
 
-    if (saved && validThemes.includes(saved)) return saved;
-
-    // If no valid saved theme → fallback to system preference
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     return prefersDark ? "dark" : "light";
   });
@@ -20,5 +24,5 @@ export default function useTheme() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  return [theme, setTheme, validThemes];
+  return [theme, setTheme, themes];
 }

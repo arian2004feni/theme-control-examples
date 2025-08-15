@@ -1,18 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: 
-    light --default, 
-    dark --prefersdark, 
-    aqua, 
-    arian-delta, 
-    arian-alpha;
-  }
+  themes: all;
+}
 
-  /* Make Tailwind's dark: classes work only when data-theme=dark */
-  @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-  @custom-variant aqua (&:where([data-theme=aqua], [data-theme=aqua] *));
-  @custom-variant arian-delta (&:where([data-theme=arian-delta], [data-theme=arian-delta] *));
-  @custom-variant arian-alpha (&:where([data-theme=arian-alpha], [data-theme=arian-alpha] *));
+/* Make Tailwind's dark: classes work only when data-theme=dark */
+@custom-variant arian-delta (&:where([data-theme=arian-delta], [data-theme=arian-delta] *));
 
 /* Custom styles for light theme */
 
@@ -45,37 +37,5 @@
   --size-field: 0.25rem;
   --border: 1px;
   --depth: 0;
-  --noise: 0;
-}
-
-@plugin "daisyui/theme" {
-  name: "arian-alpha";
-  --color-base-100: oklch(26% 0.051 172.552);
-  --color-base-200: oklch(37% 0.077 168.94);
-  --color-base-300: oklch(43% 0.095 166.913);
-  --color-base-content: oklch(95% 0.052 163.051);
-  --color-primary: oklch(84% 0.238 128.85);
-  --color-primary-content: oklch(27% 0.072 132.109);
-  --color-secondary: oklch(0% 0 0);
-  --color-secondary-content: oklch(100% 0 0);
-  --color-accent: oklch(85% 0.199 91.936);
-  --color-accent-content: oklch(28% 0.066 53.813);
-  --color-neutral: oklch(37% 0.077 168.94);
-  --color-neutral-content: oklch(97% 0.021 166.113);
-  --color-info: oklch(71% 0.143 215.221);
-  --color-info-content: oklch(98% 0.019 200.873);
-  --color-success: oklch(69% 0.17 162.48);
-  --color-success-content: oklch(97% 0.021 166.113);
-  --color-warning: oklch(79% 0.184 86.047);
-  --color-warning-content: oklch(98% 0.026 102.212);
-  --color-error: oklch(64% 0.246 16.439);
-  --color-error-content: oklch(96% 0.015 12.422);
-  --radius-selector: 1rem;
-  --radius-field: 0.25rem;
-  --radius-box: 0.5rem;
-  --size-selector: 0.25rem;
-  --size-field: 0.25rem;
-  --border: 1px;
-  --depth: 1;
   --noise: 0;
 }
