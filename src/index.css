@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all; /* all built-in + your custom */
+}
+/* Custom styles for light theme */
